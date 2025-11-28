@@ -19,17 +19,15 @@ public class BaseTests {
         System.setProperty("Webdriver.chrome.driver", "resources/chromedriver-win64/chromedriver.exe");
         driver = new ChromeDriver();
         homePage = new HomePage(driver);
-        driver.get("https://the-internet.herokuapp.com");
+        driver.get(" https://toolsqa.com/");
         System.out.println(driver.getTitle());
 
 
     }
-    @Test
-    public void  testts(){
-        WebElement inputsLink =driver.findElement(By.linkText("Inputs"));
-        inputsLink.click();
+@Test
 
-    }
+
+
     @AfterTest
     public void tearDown (){
 //        driver.quit();
