@@ -18,6 +18,10 @@ public class HomePage {
         return new SeleniumCoursePage(driver);
 
     }
+    public Uploadpage clickUpload(String s){
+        getLink("Upload and Download");
+        return new  Uploadpage(driver);
+    }
 
 
     public void getLink(String linkText){
