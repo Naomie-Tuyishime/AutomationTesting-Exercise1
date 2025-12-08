@@ -33,10 +33,7 @@ public class HomePage {
         driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div/div/div[1]/span/div/div[1]")).click();
     }
 
-    /**
-     * Clicks the 'Upload and Download' menu item robustly.
-     * This uses Explicit Wait and JavaScript scrolling and clicking to resolve ElementNotInteractableException.
-     */
+
     public Uploadpage clickUpload(){
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
