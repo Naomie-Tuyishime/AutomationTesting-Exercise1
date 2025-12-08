@@ -29,9 +29,7 @@ public class HomePage {
         return null;
     }
 
-    public  void clickElement (){
-        driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div/div/div[1]/span/div/div[1]")).click();
-    }
+
 
 
     public Uploadpage clickUpload(){

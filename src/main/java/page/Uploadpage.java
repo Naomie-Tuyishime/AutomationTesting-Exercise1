@@ -12,13 +12,8 @@ public class Uploadpage {
     private WebDriver driver;
     private final By fileInput = By.id("uploadFile");
 
-    private final By uploadedFilePathText = By.id("uploadedFilePath");
-
     public Uploadpage(WebDriver driver){
         this.driver=driver;
-    }
-
-    public void clickElements (){
     }
 
     public void selectFile (String absolutePathOfFile ){
@@ -28,8 +23,5 @@ public class Uploadpage {
         fileInputElement.sendKeys(absolutePathOfFile);
     }
 
-    public String getUploadedFileName() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(uploadedFilePathText)).getText();
-    }
+
 }
