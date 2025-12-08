@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage {
     private WebDriver driver;
+    private By uploadpagelink = By.xpath("//*[@id=\"item-7\"]");
+    private By elements = By.className("header-text");
+    private By uploadFile = By.cssSelector("span.text");
     public HomePage(WebDriver driver) {
         this.driver = driver;
 
@@ -18,16 +21,24 @@ public class HomePage {
         return new SeleniumCoursePage(driver);
 
     }
-    public Uploadpage clickUpload(String s){
-        getLink("Upload and Download");
-        return new  Uploadpage(driver);
+    public  void clickElement (){
+        driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div/div/div[1]/span/div/div[1]"));
+
     }
 
-
+    public Uploadpage clickUpload(){
+        driver.findElement(uploadpagelink).click();
+        return new  Uploadpage(driver);
+    }
     public void getLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
     }
 
 
-
 }
+
+
+
+
+
+

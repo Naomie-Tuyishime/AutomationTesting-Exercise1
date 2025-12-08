@@ -6,13 +6,18 @@ import org.openqa.selenium.WebDriver;
 public class Uploadpage {
 
 private WebDriver driver;
-private By chooseFile = By.id("uploadFile");
+private By elements = By.className("header-text");
+private By uploadFile = By.cssSelector("span.text");
 public Uploadpage(WebDriver driver){
     this.driver=driver;
 
 }
+public void clickElements (){
+    driver.findElement(elements).click();
+}
+
 public void selectFile (String absolutePathOfFile ){
-    driver.findElement(chooseFile).sendKeys(absolutePathOfFile);
+    driver.findElement(uploadFile).sendKeys(absolutePathOfFile);
 
 }
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class LinkedInSignIn {
     private WebDriver driver;
-    private By signInButton = By.id("sign-in-form__submit-btn" );
+    private By signInButton = By.linkText("Sign In");
 
     public LinkedInSignIn(WebDriver driver) {
         this.driver = driver;

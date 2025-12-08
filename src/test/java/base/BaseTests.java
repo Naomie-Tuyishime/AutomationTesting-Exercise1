@@ -19,7 +19,7 @@ public class BaseTests {
         System.setProperty("Webdriver.chrome.driver", "resources/chromedriver-win64/chromedriver.exe");
         driver = new ChromeDriver();
         homePage = new HomePage(driver);
-        driver.get(" https://toolsqa.com/");
+        driver.get(" https://demoqa.com/forms");
         System.out.println(driver.getTitle());
 
 
