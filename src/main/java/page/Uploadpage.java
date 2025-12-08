@@ -19,5 +19,6 @@ public void clickElements (){
 public void selectFile (String absolutePathOfFile ){
     driver.findElement(uploadFile).sendKeys(absolutePathOfFile);
 
+
 }
 }
