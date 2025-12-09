@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import java.time.Duration;
 
 public class HomePage {
@@ -30,7 +31,15 @@ public class HomePage {
     }
 
 
+public DropDownPage clickDropDown(){
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[4]"));
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+        return new DropDownPage(driver);
+}
 
     public Uploadpage clickUpload(){
 
@@ -41,8 +50,6 @@ public class HomePage {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", uploadElement);
-
-
         js.executeScript("arguments[0].click();", uploadElement);
                 return new Uploadpage (driver);
     }
