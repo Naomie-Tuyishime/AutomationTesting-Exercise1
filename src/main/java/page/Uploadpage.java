@@ -19,9 +19,7 @@ public class Uploadpage {
     public void selectFile (String absolutePathOfFile ){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement fileInputElement = wait.until(ExpectedConditions.presenceOfElementLocated(fileInput));
-
         fileInputElement.sendKeys(absolutePathOfFile);
     }
-
 
 }

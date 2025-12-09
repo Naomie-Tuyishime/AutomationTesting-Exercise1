@@ -26,8 +26,6 @@ public class BaseTests {
     }
 @Test
 
-
-
     @AfterTest
     public void tearDown (){
 

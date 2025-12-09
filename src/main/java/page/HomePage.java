@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class HomePage {
     private WebDriver driver;
-    private By uploadpagelink = By.xpath("//*[@id=\"item-7\"]");
+    private By uploadpagelink = By.cssSelector("#item-7 > span");
     private By elements = By.className("header-text");
     private By uploadFile = By.cssSelector("span.text");
 
@@ -45,8 +45,11 @@ public class HomePage {
 
         js.executeScript("arguments[0].click();", uploadElement);
                 return new Uploadpage (driver);
+    }
+    public LinksPage clickLink (){
 
-
+     getLink("Links");
+     return new LinksPage(driver);
     }
 
     public void getLink(String linkText){
