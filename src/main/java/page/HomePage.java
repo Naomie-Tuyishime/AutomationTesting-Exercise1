@@ -1,5 +1,6 @@
 package page;
 
+import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,15 +16,13 @@ public class HomePage {
     private By uploadpagelink = By.cssSelector("#item-7 > span");
     private By elements = By.className("header-text");
     private By uploadFile = By.cssSelector("span.text");
+    private By bookStoreElement = By.cssSelector(".card.mt-4.top-card");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public AboutPage clickAbout(){
-        getLink("ABOUT");
-        return null;
-    }
+
 
     public SeleniumCoursePage clickSeleniumCoursePage (){
         getLink("SELENIUM TRAINING");
@@ -58,6 +57,14 @@ public DropDownPage clickDropDown(){
      getLink("Links");
      return new LinksPage(driver);
     }
+    public BooksPage  clickBookStoreApplication (){
+        WebElement element = driver.findElements(bookStoreElement).get(5);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        element.click();
+        return new BooksPage(driver);
+
+    }
+
 
     public void getLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
