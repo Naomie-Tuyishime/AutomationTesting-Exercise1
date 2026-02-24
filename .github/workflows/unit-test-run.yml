@@ -3,7 +3,7 @@ name: Run Unit Tests
 on: 
   push:
     branches: 
-      [main]  
+      - 'feature/*'     
 
 jobs:
   run-unit-tests:
@@ -12,5 +12,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run unit tests
+      - name: run unit test
         run: mvn test
