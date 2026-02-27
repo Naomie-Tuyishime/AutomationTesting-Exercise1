@@ -1,38 +1,42 @@
 package base;
 
-import com.google.j2objc.annotations.Weak;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+
+
+
 import page.HomePage;
 
+// Assuming this is part of your BaseTests class
 public class BaseTests {
     private WebDriver driver;
-    protected HomePage homePage;
+    protected HomePage homePage; // Field added based on your structure
+
+
+    private static final String baseURL = "https://demoqa.com/";
+
     @BeforeTest
-    public void setUp () {
+    public void setUp() {
+         WebDriverManager.chromedriver().setup();
 
-        System.setProperty("Webdriver.chrome.driver", "resources/chromedriver-win64/chromedriver.exe");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-notifications");
+        options.addArguments("--start-maximized");
+        options.addArguments("--no-sandbox");
+        driver = new ChromeDriver(options);
+        driver.get(baseURL);
         homePage = new HomePage(driver);
-        driver.get(" https://demoqa.com/forms");
-        System.out.println(driver.getTitle());
-
-
+        driver.manage().window().maximize();
     }
-@Test
 
-
-
-    @AfterTest
-    public void tearDown (){
+    @AfterClass
+    public void tearDown() {
 //        driver.quit();
     }
-
-
-
 }
